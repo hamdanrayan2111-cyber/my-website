@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayan Ali Hamdan | Digital Inclusion, Projects & Network Technician</title>
+  <meta name="description" content="CV and work history of Rayan Ali Hamdan: digital workshop leader at ARTIS Multimédia, Erasmus+ project contributor, former low-voltage and network technician." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --bg-soft: #121829;
+      --card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #e8ecf5;
+      --muted: #9aa4bd;
+      --accent: #6c8cff;
+      --accent-2: #b36cff;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    body.light {
+      --bg: #f6f7fb;
+      --bg-soft: #ffffff;
+      --card: rgba(255, 255, 255, 0.85);
+      --border: rgba(20, 30, 60, 0.1);
+      --text: #1a2038;
+      --muted: #5b6480;
+      --shadow: 0 20px 50px rgba(30, 40, 90, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
+    }
+
+    /* Animated background glow */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.25;
+      z-index: -1;
+      animation: float 14s ease-in-out infinite alternate;
+    }
+    body::before { background: var(--accent); top: -120px; left: -120px; }
+    body::after { background: var(--accent-2); bottom: -120px; right: -120px; animation-delay: -7s; }
+
+    @keyframes float {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(60px, 40px) scale(1.15); }
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1050px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    nav .container {
+      display: flex; justify-content: space-between; align-items: center;
+      height: 68px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 1.3rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a {
+      font-size: 0.92rem; color: var(--muted); transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    #theme-toggle {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); width: 38px; height: 38px;
+      border-radius: 50%; cursor: pointer; font-size: 1rem;
+      transition: transform 0.3s;
+    }
+    #theme-toggle:hover { transform: rotate(20deg) scale(1.08); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 90px;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 50px; align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 999px;
+      font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .badge span { color: #4ade80; margin-right: 6px; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      line-height: 1.1; margin-bottom: 18px;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p.lead {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 560px; margin-bottom: 32px;
+    }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      padding: 13px 28px; border-radius: 12px;
+      font-weight: 500; font-size: 0.95rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #fff; box-shadow: 0 10px 30px rgba(108, 140, 255, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-3px); }
+    .btn-ghost {
+      border: 1px solid var(--border); background: var(--card); color: var(--text);
+    }
+    .btn-ghost:hover { transform: translateY(-3px); }
+
+    /* Avatar */
+    .avatar-wrap { display: flex; justify-content: center; }
+    .avatar {
+      width: 260px; height: 260px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem; font-weight: 700; color: #fff;
+      box-shadow: 0 0 0 10px var(--card), var(--shadow);
+      animation: pulse 5s ease-in-out infinite;
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    /* SECTIONS */
+    section { padding: 90px 0; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; margin-bottom: 10px;
+    }
+    .section-sub { color: var(--muted); margin-bottom: 46px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    /* About */
+    .about-text { font-size: 1.05rem; color: var(--muted); }
+    .about-text p + p { margin-top: 14px; }
+    .about-text strong { color: var(--text); }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px; margin-top: 30px;
+    }
+    .stat { text-align: center; padding: 18px; border-radius: 16px; background: var(--bg-soft); border: 1px solid var(--border); }
+    .stat h3 {
+      font-size: 1.9rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .stat p { font-size: 0.85rem; color: var(--muted); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 34px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px;
+      width: 2px; background: linear-gradient(var(--accent), var(--accent-2));
+      opacity: 0.5;
+    }
+    .timeline-item { position: relative; margin-bottom: 26px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -34px; top: 28px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent);
+      box-shadow: 0 0 0 5px var(--card);
+    }
+    .timeline-item.current::before { background: var(--accent); }
+    .tl-head {
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
+    }
+    .tl-head h3 { font-size: 1.2rem; }
+    .tl-company { color: var(--accent); font-weight: 500; font-size: 0.95rem; }
+    .tl-date {
+      font-size: 0.82rem; padding: 4px 14px; border-radius: 999px;
+      background: var(--bg-soft); border: 1px solid var(--border); color: var(--muted);
+      height: fit-content;
+    }
+    .tl-desc { color: var(--muted); font-size: 0.96rem; }
+    .tl-desc ul { margin: 8px 0 0 18px; }
+    .tl-desc li { margin-bottom: 4px; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .skill-card { transition: transform 0.35s, border-color 0.35s; }
+    .skill-card:hover { transform: translateY(-8px); border-color: var(--accent); }
+    .skill-icon { font-size: 2rem; margin-bottom: 12px; }
+    .skill-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .skill-card p { font-size: 0.9rem; color: var(--muted); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .tag {
+      padding: 8px 18px; border-radius: 999px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: 0.88rem; color: var(--text);
+      transition: all 0.3s;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Education */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .edu-card .year {
+      color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;
+    }
+    .edu-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .edu-card .place { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+    .edu-card p { font-size: 0.92rem; color: var(--muted); }
+
+    /* Projects */
+    .project-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-card { transition: transform 0.35s, border-color 0.35s; }
+    .project-card:hover { transform: translateY(-8px); border-color: var(--accent-2); }
+    .project-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .project-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .project-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .card { max-width: 640px; margin: 0 auto; }
+    .contact p { color: var(--muted); margin-bottom: 26px; }
+
+    footer {
+      text-align: center; padding: 30px 0;
+      color: var(--muted); font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(35px); transition: all 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero p.lead { margin-left: auto; margin-right: auto; }
+      .btn-row { justify-content: center; }
+      .avatar-wrap { order: -1; }
+      .avatar { width: 200px; height: 200px; font-size: 3.8rem; }
+      .nav-links a:not(#theme-toggle) { display: none; }
+      .stats { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      nav, #theme-toggle, .btn-row, body::before, body::after { display: none; }
+      body { background: #fff; color: #000; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="#home" class="logo">R. Hamdan</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge"><span>●</span> Working at ARTIS Multimédia</div>
+        <h1>Hi, I'm <span class="gradient-text">Rayan Ali Hamdan</span></h1>
+        <p class="lead">
+          I lead digital workshops, support digital inclusion and help run youth activities
+          and Erasmus+ projects. With a technical background in networks and low-voltage
+          systems, I make technology accessible to everyone.
+        </p>
+        <div class="btn-row">
+          <a href="#experience" class="btn btn-primary">View my experience</a>
+          <a href="Rayan_Hamdan_CV.pdf" download class="btn btn-ghost">Download CV</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <!-- To use a photo: replace the letters with <img src="photo.jpg" alt="Rayan Ali Hamdan" /> -->
+        <div class="avatar">RH</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container reveal">
+      <h2 class="section-title">About me</h2>
+      <p class="section-sub">Organised, optimistic, determined, flexible and rigorous.</p>
+      <div class="card about-text">
+        <p>
+          As part of <strong>ARTIS Multimédia</strong>, I help run <strong>digital workshops</strong>
+          and organise activities for young people. I teach office software to beginners, mentor
+          interns and contribute to the development of various projects, including the
+          <strong>Erasmus+ programme</strong>.
+        </p>
+        <p>
+          Before moving into education and community work, I worked as a <strong>low-voltage and
+          network technician</strong>: structured cabling, Wi-Fi access point installation and
+          network rack connections. This mix of technical and teaching skills lets me adapt to
+          any environment and always find the right solution.
+        </p>
+        <div class="stats">
+          <div class="stat"><h3>3+</h3><p>Years at ARTIS Multimédia</p></div>
+          <div class="stat"><h3>Erasmus+</h3><p>European projects</p></div>
+          <div class="stat"><h3>2</h3><p>Years as network technician</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title reveal">Work experience</h2>
+      <p class="section-sub reveal">My professional journey, from industrial IT to digital inclusion.</p>
+
+      <div class="timeline">
+
+        <div class="timeline-item current reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Digital Workshop Leader & Project Contributor</h3>
+                <div class="tl-company">ARTIS Multimédia</div>
+              </div>
+              <span class="tl-date">Feb 2023 – Present</span>
+            </div>
+            <div class="tl-desc">
+              Leading introductory workshops on office software and taking part in Erasmus+ projects.
+              <ul>
+                <li>Teaching computer basics, Word, Excel, email and internet navigation</li>
+                <li>Mentoring interns and supporting adult learners in Saint-Denis</li>
+                <li>Organising activities and events for young people</li>
+                <li>Contributing to the development of the Erasmus+ programme</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Civic Service Volunteer</h3>
+                <div class="tl-company">ARTIS Multimédia</div>
+              </div>
+              <span class="tl-date">Nov 2020 – Sep 2021</span>
+            </div>
+            <div class="tl-desc">
+              Led introductory workshops on office software tools.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Low-Voltage Technician</h3>
+                <div class="tl-company">Baticonnect</div>
+              </div>
+              <span class="tl-date">Sep 2019 – Sep 2020</span>
+            </div>
+            <div class="tl-desc">
+              <ul>
+                <li>IT cabling (RJ45)</li>
+                <li>Assembly and connection of network racks</li>
+                <li>Wi-Fi access point installation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Network Technician</h3>
+                <div class="tl-company">La Plateforme du Bâtiment</div>
+              </div>
+              <span class="tl-date">Sep 2018 – Sep 2019</span>
+            </div>
+            <div class="tl-desc">
+              <ul>
+                <li>IT cabling (RJ45)</li>
+                <li>Assembly and connection of network racks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Waiter</h3>
+                <div class="tl-company">Casa Bianca · Luxembourg</div>
+              </div>
+              <span class="tl-date">Jul 2018 – Aug 2018</span>
+            </div>
+            <div class="tl-desc">Customer reception and table service.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Waiter</h3>
+                <div class="tl-company">Le Corner · Paris</div>
+              </div>
+              <span class="tl-date">Jun 2017 – Aug 2017</span>
+            </div>
+            <div class="tl-desc">Customer service in a busy restaurant environment.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="card">
+            <div class="tl-head">
+              <div>
+                <h3>Industrial Computer Programming Intern</h3>
+                <div class="tl-company">STEF · Paris</div>
+              </div>
+              <span class="tl-date">Jan 2013 – Apr 2013</span>
+            </div>
+            <div class="tl-desc">Internship in industrial computer programming.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title reveal">Skills</h2>
+      <p class="section-sub reveal">A blend of people skills and technical know-how.</p>
+
+      <div class="skills-grid">
+        <div class="card skill-card reveal">
+          <div class="skill-icon">👥</div>
+          <h3>Group management</h3>
+          <p>Leading workshops and mixed-age groups with patience and clarity.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="skill-icon">📋</div>
+          <h3>Project management</h3>
+          <p>Planning, organising and following up educational and European projects.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="skill-icon">💻</div>
+          <h3>Office software</h3>
+          <p>Word, Excel, email, internet navigation and everyday digital tools.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="skill-icon">🤝</div>
+          <h3>Digital inclusion support</h3>
+          <p>Helping people become more autonomous with technology.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="skill-icon">🔌</div>
+          <h3>Low-voltage cabling</h3>
+          <p>From cable pulling to connection, including RJ45 structured cabling.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="skill-icon">📡</div>
+          <h3>Network installation</h3>
+          <p>Wi-Fi access point installation and network rack assembly and connection.</p>
+        </div>
+      </div>
+
+      <div class="tags reveal">
+        <span class="tag">Adaptable</span>
+        <span class="tag">Problem solving</span>
+        <span class="tag">Organised</span>
+        <span class="tag">Optimistic</span>
+        <span class="tag">Determined</span>
+        <span class="tag">Flexible</span>
+        <span class="tag">Rigorous</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title reveal">Education</h2>
+      <p class="section-sub reveal">Technology-oriented studies in Gonesse (95).</p>
+
+      <div class="edu-grid">
+        <div class="card edu-card reveal">
+          <div class="year">2018</div>
+          <h3>Baccalauréat STI2D</h3>
+          <div class="place">Lycée René Cassin · Gonesse</div>
+          <p>Option: Information and Digital Systems (SIN).</p>
+        </div>
+        <div class="card edu-card reveal">
+          <div class="year">2013</div>
+          <h3>Brevet des collèges</h3>
+          <div class="place">Collège Philippe Auguste · Gonesse</div>
+          <p>Middle school diploma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Projects at ARTIS</h2>
+      <p class="section-sub reveal">Initiatives that combine education, inclusion and community.</p>
+
+      <div class="project-grid">
+        <div class="card project-card reveal">
+          <div class="icon">🌍</div>
+          <h3>Erasmus+ programme</h3>
+          <p>Contributing to the development of European youth and education projects.</p>
+        </div>
+        <div class="card project-card reveal">
+          <div class="icon">🖥️</div>
+          <h3>Digital literacy workshops</h3>
+          <p>Teaching computer basics, CV writing, Word, Excel and email to beginners in Saint-Denis.</p>
+        </div>
+        <div class="card project-card reveal">
+          <div class="icon">🚗</div>
+          <h3>Driving licence support</h3>
+          <p>Helping women prepare for the highway code and the driving licence.</p>
+        </div>
+        <div class="card project-card reveal">
+          <div class="icon">🔒</div>
+          <h3>Cybersecurity awareness</h3>
+          <p>Workshops to recognise online risks and browse safely.</p>
+        </div>
+        <div class="card project-card reveal">
+          <div class="icon">📚</div>
+          <h3>Homework help & youth activities</h3>
+          <p>End-of-year party for children and teen/young adult pairing activities to encourage mutual support.</p>
+        </div>
+        <div class="card project-card reveal">
+          <div class="icon">🎨</div>
+          <h3>Activity pictograms</h3>
+          <p>Simple icons representing each of the association's activities, for clearer communication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container reveal">
+      <h2 class="section-title">Let's get in touch</h2>
+      <p class="section-sub">Interested in my profile or in working together?</p>
+      <div class="card">
+        <p>Feel free to contact me or download my full CV.</p>
+        <div class="btn-row" style="justify-content:center;">
+          <a href="mailto:your.email@example.com" class="btn btn-primary">Send an email</a>
+          <a href="Rayan_Hamdan_CV.pdf" download class="btn btn-ghost">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rayan Ali Hamdan · Built with care
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Theme toggle (remembers choice)
+    const toggle = document.getElementById('theme-toggle');
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+      toggle.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      toggle.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
